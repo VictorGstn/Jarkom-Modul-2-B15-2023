@@ -1,4 +1,12 @@
-# Jarkom-Modul-2-B15-2023
+# Laporan Resmi Modul 2 Jarkom 2023
+
+Kelompok **B15**
+
+Anggota:
+
+- [MH] Muhammad Hidayat (05111940000131)
+- [VG] Victor Gustinova (5025211159)
+
 ## 1
 
 Untuk setting awal maka dibuat topologi sesuai plottingan (topologi 7)
@@ -189,4 +197,3 @@ juga perlu ditambahkan pengaturan <Directory> pada parikesit.abimanyu.b15.conf s
 1. Kurang berkomunikasi antar anggota kelompok
 2. Error terkadang muncul setelah menutup dan membuka kembali project
 3. Tidak terpikirkan untuk membedakan script .sh untuk setiap nomor sehingga semua code terdapat pada .bashrc dan menjadi sedikit lebih membingungkan
-
