@@ -7,13 +7,13 @@ Anggota:
 - [MH] Muhammad Hidayat (05111940000131)
 - [VG] Victor Gustinova (5025211159)
 
-## 1
+## 1. Topology
 
 Untuk setting awal maka dibuat topologi sesuai plottingan (topologi 7)
 
 ![image](https://github.com/VictorGstn/Jarkom-Modul-2-B15-2023/assets/125529445/a1b5433e-4a7e-48f6-a295-10fad9d037db)
 
-## 2
+## 2. Arjuna Domain
 Dibuat pengaturan domain arjuna pada yudhistira. Pertama yudhistira perlu melakukan update dan install bind9.
 
 ![image](https://github.com/VictorGstn/Jarkom-Modul-2-B15-2023/assets/125529445/fb762393-ce1d-4376-a86d-b8b3699550a5)
@@ -27,7 +27,7 @@ lakukan echo
 ![image](https://github.com/VictorGstn/Jarkom-Modul-2-B15-2023/assets/125529445/84264160-2f70-464d-851d-7f30da7e14fe)
 
 
-## 3 dan 4 (+ setting domain no 7)
+## 3 dan 4 (+ setting domain no 7). Abimanyu Domain dan Parikesti Subdomain
 Setting pada domain abimanyu juga dilakukan hal yang sama. Untuk konfigurasi no 4 maka ditambahkan parikesit IN A.
 ![image](https://github.com/VictorGstn/Jarkom-Modul-2-B15-2023/assets/125529445/1f7ac10e-900b-4a64-9650-55e37b665eaf)
 
@@ -35,7 +35,7 @@ Setting pada domain abimanyu juga dilakukan hal yang sama. Untuk konfigurasi no 
 
 Untuk nomor 7 akan dilakukan delegasi sehingga perlu setting ns1 IN A serta baratayuda In NS. 
 
-## 5
+## 5. Abimanyu Reverse Domain
 Reverse DNS dilakukan dengan membuat file in-addr.arpa untuk Ip yang diinginkan.
 
 ![image](https://github.com/VictorGstn/Jarkom-Modul-2-B15-2023/assets/125529445/7263adfc-db45-4040-8ac6-2725acddac65)
@@ -44,7 +44,7 @@ Reverse DNS dilakukan dengan membuat file in-addr.arpa untuk Ip yang diinginkan.
 
 2.16.10.in-addr.arpa menunjukkan 3 nomor awal dari abimanyu yang direverse dan 3 IN NS PTR menunjukkan nomor IP terakhir. 
 
-## 6
+## 6. Werkudara DNS Slave
 Pada Yudhistira perlu dilakukan zone transfer untuk setiap domain yang akan dipakai juga oleh slave.
 
 ![image](https://github.com/VictorGstn/Jarkom-Modul-2-B15-2023/assets/125529445/d14b7b88-3226-4ec8-af39-ca8a40c7af3d)
@@ -61,7 +61,7 @@ Setelah itu melanjutkan zone transfernya.
 
 Pada gambar diatas terdapat allow-transfer. Konfigurasi tersebut akan memperbolehkan delegasi subdomain yang akan dilakukan pada nomo 7.
 
-## 7 dan 8
+## 7 dan 8. Baratayuda Subdomain Delegate dan RJP Sub-Subdomain Delegate
 Dilakukan pengeditan file named.conf.options pada kedua node DNS agar menjadi seperti berikut.
 
 ![image](https://github.com/VictorGstn/Jarkom-Modul-2-B15-2023/assets/125529445/0b846198-3c7c-449a-b25d-b5fb5cd21999)
@@ -74,7 +74,7 @@ Lalu pada Werkudara lakukan konfigurasi domain untuk baratayuda.abimanyu
 
 Pada gambar konfigurasi file bind baratayuda diatas terdapat rjp IN A dan www.rjp IN CNAME. KOnfigurasi tersebut akan membuat subdomain untuk rjp.baratayuda.abimanyu dan www.rjp.baratayuda.abimanyu.
 
-## 9 dan 10
+## 9 dan 10. Arjuna Load Balancer 
 Pada arjuna dilakukan installasi bind9 dan nginx.
 
 ![image](https://github.com/VictorGstn/Jarkom-Modul-2-B15-2023/assets/125529445/2067d350-e313-491f-b126-7827722b66e0)
@@ -126,7 +126,7 @@ service php7.2-fpm restart
 service nginx restart
 ```
 
-## 11 dan 12
+## 11 dan 12. Abimanyu Web Server
 Pada abimanyu dilakukan instalasi apache2 dan resource yang diperlukan.
 
 ![image](https://github.com/VictorGstn/Jarkom-Modul-2-B15-2023/assets/125529445/a2f2f5c3-8135-4719-ba17-faebf9ec531f)
@@ -140,7 +140,7 @@ Perubahan URL index.php/home manjadi /home dilakukan menggunakan alias.
 Jangan lupa untuk menjalankan
 ```a2ensite abimanyu.b15.com.conf```
 
-## 13, 14, 15, dan 16
+## 13, 14, 15, dan 16. Parikesit Website
 Berikut merupakan setting subdomain parikesit. Resource di download dan dipindahkan ke directory yang dipakai.
 
 ![image](https://github.com/VictorGstn/Jarkom-Modul-2-B15-2023/assets/125529445/9ba3374b-1c89-4043-b8b9-edef70e71ff0)
@@ -157,12 +157,12 @@ Untuk menggunakan directory listing maka dilakukan setting <Directory> dengan is
 www.parikesit.abimanyu.yyy.com/js maka dilakukan ```Alias```.
 
 
-## 17
+## 17. RJP Port Limiting
 Setting port dilakukan dengan mengubah VirtualHost Port pada file rjp.baratayuda.abimanyu.b15.com.conf
 
 ![image](https://github.com/VictorGstn/Jarkom-Modul-2-B15-2023/assets/125529445/6b79f674-c45d-437b-8dcc-307641a7aea2)
 
-## 18
+## 18. RJP Authentication
 Autentikasi dilakukan juga dengan mengatur file rjp.baratayuda.abimanyu.b15.com.conf.
 
 ![image](https://github.com/VictorGstn/Jarkom-Modul-2-B15-2023/assets/125529445/0973f710-f1a3-4e04-837c-f457817ecb35)
@@ -171,13 +171,13 @@ Selanjutnya ditambahkan informasi user dan password
 
 ![image](https://github.com/VictorGstn/Jarkom-Modul-2-B15-2023/assets/125529445/202ff3da-f07f-41b2-a43b-ed3174dd470a)
 
-## 19
+## 19. Abimanyu WWW alias
 Untuk mengalihkan secara automatis maka ditambahkan redirect pada file 000-default.conf
 
 ![image](https://github.com/VictorGstn/Jarkom-Modul-2-B15-2023/assets/125529445/7daf1cb3-b031-4011-9d78-2a100ab09fac)
 
 
-## 20
+## 20. Redirect Matching Images
 Digunakan mod rewrite dengan konfigurasi 
 ```
 RewriteEngine On
